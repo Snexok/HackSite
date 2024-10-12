@@ -13,16 +13,16 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Set up JDK
-        uses: actions/setup-java@v3
-        with:
-          distribution: 'temurin'
-          java-version: '17'
+      # - name: Set up JDK
+      #   uses: actions/setup-java@v3
+      #   with:
+      #     distribution: 'temurin'
+      #     java-version: '17'
 
-      - name: Build Spring Boot Application
-        run: |
-          cd back
-          ./mvnw clean package -DskipTests
+      # - name: Build Spring Boot Application
+      #   run: |
+      #     cd back
+      #     ./mvnw clean package -DskipTests
 
       - name: Install Node.js
         uses: actions/setup-node@v3
