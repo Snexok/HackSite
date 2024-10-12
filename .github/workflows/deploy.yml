@@ -35,6 +35,12 @@ jobs:
           npm install
           npm run build
 
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./front/dist
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
