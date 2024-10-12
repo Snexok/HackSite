@@ -13,3 +13,6 @@ spring:
       ddl-auto: update
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+cors:
+  allowed-origins: ${CORS_ALLOWED_ORIGINS}

@@ -1,6 +1,6 @@
 import { KeyboardEvent, useCallback, useEffect, useState } from 'react';
 import classNames from 'classnames';
-import axios from 'axios';
+import { loginUser } from '@/api';
 
 const Login = () => {
 	const [login, setLogin] = useState('');
@@ -9,8 +9,7 @@ const Login = () => {
 	const [header, setHeader] = useState('SECRET SITE');
 
 	const loginHandler = () => {
-		axios
-			.post('http://localhost:8080/api/v1/login', { login, password })
+		loginUser(login, password)
 			.then((r) => {
 				console.log(r);
 			})
