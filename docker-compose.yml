@@ -12,6 +12,7 @@ services:
       - postgres_data:/var/lib/postgresql/data
 
   backend:
+    image: astrocatling/backend:latest
     build: ./back
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/hack_site
@@ -23,6 +24,7 @@ services:
       - "8080:8080"
 
   frontend:
+    image: astrocatling/frontend:latest
     build: ./front
     ports:
       - "80:80"
