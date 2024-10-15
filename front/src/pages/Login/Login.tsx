@@ -1,8 +1,12 @@
-import { KeyboardEvent, useCallback, useEffect, useState } from 'react';
+import { KeyboardEvent, useEffect, useState } from 'react';
 import classNames from 'classnames';
 import { loginUser } from '@/api';
+import { useNavigate } from 'react-router-dom';
+import { logout, parseJwt } from '@/utils/auth';
 
 const Login = () => {
+	const navigate = useNavigate();
+
 	const [login, setLogin] = useState('');
 	const [password, setPassword] = useState('');
 	const [isRequestError, setIsRequestError] = useState(false);
@@ -10,25 +14,38 @@ const Login = () => {
 
 	const loginHandler = () => {
 		loginUser(login, password)
-			.then((r) => {
-				console.log(r);
+			.then(({ data }) => {
+				if (data) {
+					const role = parseJwt(data.token).role.split('_')[1].toLowerCase();
+					localStorage.setItem('token', data.token);
+					localStorage.setItem('role', role);
+					navigate(`/${role}`);
+				}
 			})
 			.catch(() => {
 				setIsRequestError(true);
 				setHeader('LOGIN ERROR');
+				logout();
 			});
 	};
-	const enterHandler = useCallback((e: KeyboardEvent<HTMLInputElement>) => {
+	const enterHandler = (e: KeyboardEvent<HTMLInputElement>) => {
 		if (e.key === 'Enter') {
-			loginHandler();
 			// @ts-ignore
 			e.target.blur();
+			loginHandler();
 		}
-	}, []);
+	};
 
 	useEffect(() => {
 		if (!isRequestError) setHeader('SECRET SITE');
 	}, [isRequestError]);
+
+	useEffect(() => {
+		const role = localStorage.getItem('role');
+		if (role) {
+			navigate(`/${role}`);
+		}
+	}, []);
 
 	return (
 		<div className="relative flex items-center justify-center w-dvw h-dvh">

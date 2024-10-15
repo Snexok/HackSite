@@ -1,7 +1,3 @@
-server:
-  servlet:
-    context-path: /api/v1
-
 spring:
   datasource:
     url: ${SPRING_DATASOURCE_URL}
@@ -11,8 +7,12 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
+
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
 
 cors:
   allowed-origins: ${CORS_ALLOWED_ORIGINS}
+
+jwt:
+  token: 4b613c8ed64c3ba25eb1cf97688eadefc7b85ad1b24fdabe037be11aba7cd604
