@@ -1,1 +1,1 @@
-export { ServicesCell } from './UserCell';
+export { UserCell } from './UserCell';

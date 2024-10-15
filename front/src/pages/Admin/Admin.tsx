@@ -1,8 +1,11 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const Admin = () => {
 	const [actionsList, setActionsList] = useState([]);
 
+	useEffect(() => {
+		setActionsList([]);
+	}, []);
 	if (!actionsList.length)
 		return (
 			<div>

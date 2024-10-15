@@ -1,7 +1,7 @@
 import { FC, useEffect, useState } from 'react';
 import { getAllUser } from '@/api';
 import { User } from '@/pages/Admin/Users/Users';
-import { UserCell } from '@/components/Admin/Users/UserCell/UserCell';
+import { UserCell } from '@/components/Admin/Users/UserCell';
 
 interface Props {
 	reloadUserList?: number;
