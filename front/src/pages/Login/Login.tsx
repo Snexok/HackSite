@@ -25,7 +25,7 @@ const Login = () => {
 			.catch(() => {
 				setIsRequestError(true);
 				setHeader('LOGIN ERROR');
-				logout();
+				logout(false);
 			});
 	};
 	const enterHandler = (e: KeyboardEvent<HTMLInputElement>) => {

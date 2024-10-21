@@ -1,0 +1,7 @@
+.ServiceCell {
+    box-shadow: 0 0 4px 1px var(--primary-green);
+}
+
+.ServiceCell:hover {
+    box-shadow: 0 0 10px 3px var(--primary-green);
+}

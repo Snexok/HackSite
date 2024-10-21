@@ -1,7 +1,7 @@
-export const logout = () => {
+export const logout = (reload = true) => {
 	localStorage.removeItem('token');
 	localStorage.removeItem('role');
-	window.location.reload();
+	if (reload) window.location.reload();
 };
 
 export const parseJwt = (token: string) => {

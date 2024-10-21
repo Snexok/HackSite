@@ -10,6 +10,7 @@ import { AdminLayout } from '@/layouts/Admin';
 import { AdminServicesPage } from '@/pages/Admin/Services';
 import { AdminUsersPage } from '@/pages/Admin/Users';
 import { ClientLayout } from '@/layouts/Client';
+import { ClientServicesPage } from '@/pages/Client/Services';
 
 function App() {
 	return (
@@ -19,6 +20,7 @@ function App() {
 				<Route path="/login" element={<LoginPage />} />
 				<Route path="/client" element={<ClientLayout />}>
 					<Route index element={<ClientPage />} />
+					<Route path="services" element={<ClientServicesPage />} />
 				</Route>
 				<Route path="/admin" element={<AdminLayout />}>
 					<Route index element={<AdminPage />} />
