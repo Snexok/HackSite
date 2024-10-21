@@ -1,6 +1,9 @@
 package ru.darlin.hack.service;
 
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import ru.darlin.hack.entity.ServiceEntity;
 import ru.darlin.hack.repository.ServiceRepository;
@@ -27,8 +30,10 @@ public class ServiceServiceJPA implements ServiceService {
     }
 
     @Override
-    public List<ServiceEntity> getAll() {
-        return repository.findAll();
+    // Page<ServiceEntity>
+    public List<ServiceEntity> getAll(int page, int size) {
+        Pageable pageable = PageRequest.of(page, size, Sort.by("id").ascending());
+        return repository.findAll(pageable).getContent();
     }
 
 }

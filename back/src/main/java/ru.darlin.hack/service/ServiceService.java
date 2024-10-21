@@ -7,5 +7,5 @@ import java.util.List;
 public interface ServiceService {
     ServiceEntity create(ServiceEntity serviceEntity);
     ServiceEntity update(ServiceEntity serviceEntity);
-    List<ServiceEntity> getAll();
+    List<ServiceEntity> getAll(int page, int size);
 }
