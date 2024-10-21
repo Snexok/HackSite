@@ -5,10 +5,9 @@ import cls from './ServiceCell.module.css';
 
 interface Props {
 	service: Service;
-	idx: number;
 }
 
-export const ServiceCell: FC<Props> = ({ service, idx }) => {
+export const ServiceCell: FC<Props> = ({ service }) => {
 	const [hovered, setHovered] = useState(false);
 
 	return (

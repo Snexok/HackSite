@@ -9,7 +9,6 @@ interface Props {
 
 export const UserCell: FC<Props> = ({ user, idx }) => {
 	const [isEditing, setIsEditing] = useState(false);
-	const [username, setUsername] = useState('');
 
 	return (
 		<div className="flex flex-col">

@@ -20,8 +20,8 @@ export const ServicesList: FC<Props> = ({ reloadUserList }) => {
 	return (
 		<div className="flex flex-col p-4 gap-4">
 			<h1 className="text-3xl">Список услуг</h1>
-			{services.map((service, idx) => (
-				<ServiceCell service={service} idx={idx} key={service.id} />
+			{services.map((service) => (
+				<ServiceCell service={service} key={service.id} />
 			))}
 		</div>
 	);

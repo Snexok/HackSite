@@ -1,12 +1,4 @@
-import {
-	ChangeEvent,
-	FC,
-	KeyboardEvent,
-	useEffect,
-	useLayoutEffect,
-	useRef,
-	useState,
-} from 'react';
+import { FC, KeyboardEvent, useEffect, useRef, useState } from 'react';
 import classNames from 'classnames';
 import Service from '@/types/Services';
 import { updateService } from '@/api';
