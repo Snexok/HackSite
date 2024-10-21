@@ -12,7 +12,7 @@ import ru.darlin.hack.repository.UserRepository;
 @Component
 @RequiredArgsConstructor
 @Slf4j
-public class AdminUserInitializer implements CommandLineRunner {
+public class UsersInitializer implements CommandLineRunner {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
 
@@ -27,6 +27,15 @@ public class AdminUserInitializer implements CommandLineRunner {
 
             userRepository.save(admin);
             log.info("Administrator created");
+
+            UserEntity client = new UserEntity();
+            admin.setLogin("client");
+            admin.setUsername("HACKER#1");
+            admin.setPassword(passwordEncoder.encode("1234"));
+            admin.setRole(UserRoles.ROLE_CLIENT);
+
+            userRepository.save(client);
+            log.info("Client created");
         }
     }
 }
