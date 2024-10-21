@@ -1,1 +1,0 @@
-import{r as t,j as s}from"./index-C1b-1aMx.js";const a=()=>{const[e,i]=t.useState([]);return t.useEffect(()=>{i([])},[]),e.length?s.jsx("div",{className:"flex flex-col"}):s.jsxs("div",{children:["Здесь вы сможете отслеживать все действия совершенные админом",s.jsx("p",{className:"text-sm opacity-60",children:"Пусть ни что не ускользнёт от вашего взора"})]})};export{a as default};
