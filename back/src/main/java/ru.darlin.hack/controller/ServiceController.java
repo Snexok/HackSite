@@ -23,6 +23,7 @@ public class ServiceController {
     @GetMapping()
     public ResponseEntity<List<ServiceDTO>> getServices(@RequestParam(defaultValue = "0") int page,
                                                         @RequestParam(defaultValue = "10") int size) {
+        System.out.println("Контроллер: начало работы метода getServices()");
         List<ServiceDTO> services = serviceMapper.map(serviceService.getAll(page, size));
 
         if (services.isEmpty()) {
@@ -41,7 +42,8 @@ public class ServiceController {
 
     @PutMapping()
     @PreAuthorize("hasRole('ADMIN')")
-    public ServiceDTO update(@RequestBody ServiceDTO service) {
-        return serviceMapper.map(serviceService.update(serviceMapper.map(service)));
+    public ResponseEntity<ServiceDTO> update(@RequestBody ServiceDTO serviceDTO) {
+        ServiceEntity service = serviceService.update(serviceMapper.map(serviceDTO));
+        return ResponseEntity.ok(serviceMapper.map(service));
     }
 }
